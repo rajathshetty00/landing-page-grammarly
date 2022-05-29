@@ -53,18 +53,27 @@ function PlansSection() {
             }) => (
               <li key={subId} style={{ listStyleImage: 'url(\'https://static.grammarly.com/assets/files/3252614f5e974a46c75e9035de53011b/checkmark.svg\')' }}>
 
-                <MuiSpecialTooltip
-                  title={(
-                    <SpecialTooltipTitle
-                      imageUrl={image}
-                      titleText={titleText}
-                    />
-)}
-                >
-                  <Typography sx={{ borderBottom: `1px dashed ${theme.palette.text.shadeOfBlue}`, pb: theme.spacing(0.25), cursor: 'pointer' }} border="1" variant="span" fontWeight={theme.typography.fontWeightMedium}>
-                    {Heading}
-                  </Typography>
-                </MuiSpecialTooltip>
+                {
+                  titleText ? (
+                    <MuiSpecialTooltip
+                      title={(
+                        <SpecialTooltipTitle
+                          imageUrl={image}
+                          titleText={titleText}
+                        />
+  )}
+                    >
+                      <Typography sx={{ borderBottom: `1px dashed ${theme.palette.text.shadeOfBlue}`, pb: theme.spacing(0.25), cursor: 'pointer' }} border="1" variant="span" fontWeight={theme.typography.fontWeightMedium}>
+                        {Heading}
+                      </Typography>
+                    </MuiSpecialTooltip>
+                  ) : (
+                    <Typography sx={{ borderBottom: `1px dashed ${theme.palette.text.shadeOfBlue}`, pb: theme.spacing(0.25), cursor: 'pointer' }} border="1" variant="span" fontWeight={theme.typography.fontWeightMedium}>
+                      {Heading}
+                    </Typography>
+                  )
+                }
+
                 <Spacer size={4} />
               </li>
             ))}

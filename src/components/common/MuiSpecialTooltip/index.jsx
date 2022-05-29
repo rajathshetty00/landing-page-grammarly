@@ -14,9 +14,9 @@ export function SpecialTooltipTitle({ imageUrl, titleText }) {
   );
 }
 
-function MuiSpecialTooltip({ title, children }) {
+function MuiSpecialTooltip({ title, children, ...rest }) {
   const CustomTooltip = styled(({ className, ...props }) => (
-    <Tooltip {...props} classes={{ popper: className }} />
+    <Tooltip followCursor {...props} classes={{ popper: className }} />
   ))(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
       backgroundColor: theme.palette.common.blue,
@@ -24,7 +24,7 @@ function MuiSpecialTooltip({ title, children }) {
       width: '100%',
       maxWidth: 'none',
       padding: theme.spacing(2),
-      margin: 0,
+      margin: '0',
       '& img': {
         width: '100%',
         height: '100%',
@@ -36,7 +36,7 @@ function MuiSpecialTooltip({ title, children }) {
   }));
 
   return (
-    <CustomTooltip title={title}>
+    <CustomTooltip {...rest} title={title}>
       {children}
     </CustomTooltip>
   );

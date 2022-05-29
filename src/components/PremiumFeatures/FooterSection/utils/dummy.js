@@ -4,7 +4,7 @@ const footerDetails = {
   counterList: [
     {
       id: 1,
-      percentageValue: 80,
+      percentageValue: 76,
       bottomText: '76% of Grammarly users find writing more enjoyable.',
     },
     {

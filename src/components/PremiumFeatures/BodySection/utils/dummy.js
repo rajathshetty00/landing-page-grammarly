@@ -60,38 +60,38 @@ const bodyDetails = {
         {
           subId: 3,
           image: 'https://static.grammarly.com/assets/files/1e01fcc98c60d4c210320cc735a38368/example-confident-writing.svg',
-          titleText: 'Tone adjustments',
+          titleText: 'Eliminate hedging language or unnecessary qualifiers to sound more confident.',
           Heading: 'Tone adjustments',
         },
         {
           subId: 4,
           image: null,
-          titleText: 'Tone adjustments',
+          titleText: 'Ensure your work is fresh and original by checking it against 16 billion web pages.',
           Heading: 'Plagiarism detection',
         },
         {
           subId: 5,
           image: 'https://static.grammarly.com/assets/files/1cb3884004858ec65c71e5f7db9edd54/example-word-choice.svg',
-          titleText: 'Tone adjustments',
+          titleText: 'Find vivid words to enliven each and every message.',
           Heading: 'Word Choice',
         },
 
         {
           subId: 6,
           image: 'https://static.grammarly.com/assets/files/d7dae495a77eb1db07abafa627c135db/example-formality.svg',
-          titleText: 'Tone adjustments',
+          titleText: "Write with the appropriate tone, even when you're in a hurry.",
           Heading: 'Formality level',
         },
         {
           subId: 7,
           image: 'https://static.grammarly.com/assets/files/6ae68325cb99c9176eab1924c4bc8ce4/example-fluency.svg',
-          titleText: 'Tone adjustments',
+          titleText: 'Ensure your word choices sound natural and fluent',
           Heading: 'Fluency',
         },
         {
           subId: 8,
           image: null,
-          titleText: 'Tone adjustments',
+          titleText: 'Fix inconsistencies in spelling and punctuation, adjust the tone of your writing, and get additional advanced feedback.',
           Heading: 'Additional Advanced Suggestions',
         },
 
