@@ -21,6 +21,7 @@ let theme = createTheme({
     common: {
       blue: '#333954',
       white100: '#f9faff',
+      blue900: '#3659b5',
     },
   },
   components: {

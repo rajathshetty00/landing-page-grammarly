@@ -9,9 +9,7 @@ import theme from 'theme';
 import details from '../utils/dummy';
 
 function TopDetailSection() {
-  const [progress,
-    // setProgress
-  ] = React.useState(100);
+  const [progress] = React.useState(100);
 
   const [detailItem, setDetailItem] = React.useState(details[0]);
 
@@ -49,7 +47,6 @@ function TopDetailSection() {
     &:hover {
       transform: scale3d(1.05, 1.05, 1.05);
     }
-    
     `;
 
   return (
@@ -59,29 +56,43 @@ function TopDetailSection() {
         display: 'grid',
         width: '70%',
         margin: '0 auto',
-        gridTemplateColumns: '1.25fr 0.75fr',
+        gridTemplateColumns: {
+          xs: '1fr',
+          md: '1.25fr 0.75fr',
+        },
         gap: '24px',
         justifyContent: 'start',
         textAlign: 'left',
       }}
     >
       <div>
+        {/* Card image Desktop style starts */}
         <Box
           elementType="div"
-          sx={{ position: 'relative' }}
+          sx={{
+            position: 'relative',
+            display: {
+              xs: 'none',
+              sm: 'block',
+            },
+          }}
         >
           <MuiPaper elevation={24} height={250} width="fit-content">
             <img
-              alt="xyz"
+              alt="pic of item"
               width="100%"
               height="100%"
               src={detailItem.imageOne}
+              srcSet={detailItem.imageOne}
             />
+
           </MuiPaper>
           <Box
             elementType="div"
             sx={{
-              position: 'absolute', top: '76%', left: '10%',
+              position: 'absolute',
+              top: '76%',
+              left: '10%',
             }}
           >
             <MuiPaper elevation={24} width="fit-content" height="fit-content">
@@ -94,31 +105,89 @@ function TopDetailSection() {
             </MuiPaper>
           </Box>
         </Box>
-      </div>
-      <div>
+        {/* Card image Desktop style ends */}
 
-        {details.map(({ id, textOne, textTwo }, index) => (
-          <>
-            <CustomSection key={id} role="none" onClick={() => onClickHandler(index)}>
-              <MuiTypography variant="p" fontWeight={theme.typography.fontWeightBold} color={theme.palette.secondary.main}>
+        {/* Card image mobile style starts */}
+        <Box
+          elementType="div"
+          sx={{
+            position: 'relative',
+            display: {
+              xs: 'block',
+              sm: 'none',
+            },
+            textAlign: 'center',
+          }}
+        >
+          {details.map(({
+            id, textOne, textTwo, mobileImage,
+          }) => (
+            <div key={id}>
+              <img
+                alt="pic of item"
+                width="100%"
+                height="100%"
+                src={mobileImage}
+                srcSet={mobileImage}
+              />
+              <MuiTypography variant="p" fontWeight={theme.typography.fontWeightBold} color={theme.palette.common.black}>
                 {textOne}
               </MuiTypography>
               <MuiTypography variant="subtitle1" color={theme.palette.text.secondary}>
                 {textTwo}
               </MuiTypography>
-              <Spacer size={8} />
-              <MuiHorizontalProgressBar
-                progress={id === detailItem.id ? progress : 0}
-                thickness="2.5px"
-                variant="determinate"
-                linearbackground="shadeOfGrey"
+              <Spacer sx={{
+                height: {
+                  xs: theme.spacing(6),
+                  sm: theme.spacing(3),
+                },
+              }}
               />
-            </CustomSection>
-            <Spacer size={24} />
-          </>
-
-        ))}
+            </div>
+          ))}
+        </Box>
+        {/* Card image mobile style ends */}
       </div>
+
+      {/* Timer component in desktop starts */}
+      <div>
+        <Box sx={{
+          display: {
+            xs: 'none',
+            md: 'block',
+          },
+        }}
+        >
+          {details.map(({ id, textOne, textTwo }, index) => (
+            <>
+              <CustomSection key={id} role="none" onClick={() => onClickHandler(index)}>
+                <MuiTypography variant="p" fontWeight={theme.typography.fontWeightBold} color={theme.palette.secondary.main}>
+                  {textOne}
+                </MuiTypography>
+                <MuiTypography variant="subtitle1" color={theme.palette.text.secondary}>
+                  {textTwo}
+                </MuiTypography>
+                <Spacer sx={{
+                  height: theme.spacing(1),
+                }}
+                />
+                <MuiHorizontalProgressBar
+                  progress={id === detailItem.id ? progress : 0}
+                  thickness="2.5px"
+                  variant="determinate"
+                  linearbackground="shadeOfGrey"
+                />
+              </CustomSection>
+              <Spacer sx={{
+                height: theme.spacing(3),
+              }}
+              />
+            </>
+          ))}
+        </Box>
+      </div>
+      {/* Timer component in desktop starts */}
+
     </Box>
   );
 }

@@ -1,21 +1,15 @@
+import { Box } from '@mui/material';
 import React from 'react';
 
 function Spacer({
-  size, axis, children,
+  children, sx,
 }) {
-  const width = axis === 'vertical' ? 1 : size;
-  const height = axis === 'horizontal' ? 1 : size;
   return (
-    <div
-      style={{
-        width,
-        minWidth: width,
-        height,
-        minHeight: height,
-      }}
+    <Box
+      sx={sx}
     >
       {children}
-    </div>
+    </Box>
   );
 }
 

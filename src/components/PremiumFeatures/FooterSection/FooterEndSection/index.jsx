@@ -13,13 +13,17 @@ function FooterEndSection() {
     footerEndBtnText,
   } = footerDetails;
 
-  const Item = styled('div')(() => ({
+  const Item = styled('div')(({ theme }) => ({
     background: 'no-repeat left -200px bottom -90px url(https://static.grammarly.com/assets/files/7704056c286a7b6b242f7f6839113502/swoosh.png)',
     minHeight: '492px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
+    [theme.breakpoints.down('sm')]: {
+      minHeight: '380px',
+      padding: theme.spacing(0, 3),
+    },
   }));
 
   return (
@@ -27,11 +31,11 @@ function FooterEndSection() {
       <MuiTypography component="h1" variant="h1">
         {footerEndHeader}
       </MuiTypography>
-      <Spacer size={16} />
+      <Spacer sx={{ height: mytheme.spacing(2) }} />
       <MuiTypography variant="body2" fontWeight={mytheme.typography.fontWeightRegular}>
         {footerEndSubHeader}
       </MuiTypography>
-      <Spacer size={24} />
+      <Spacer sx={{ height: mytheme.spacing(3) }} />
       <MuiButton>
         {footerEndBtnText}
       </MuiButton>

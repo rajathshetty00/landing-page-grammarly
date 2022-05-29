@@ -25,25 +25,39 @@ function FooterCounter() {
     <Box sx={{
       padding: mytheme.spacing(8, 0),
       background: mytheme.palette.common.white100,
-      textAlign: 'left',
+      textAlign: {
+        xs: 'center', sm: 'left',
+      },
     }}
     >
       <Box sx={{
-        width: '70%', margin: '0 auto',
+        width: {
+          xs: '80%', sm: '70%',
+        },
+        margin: '0 auto',
       }}
       >
         <MuiTypography variant="h3">
           {counterHeader}
         </MuiTypography>
-        <Spacer size={16} />
+        <Spacer sx={{ height: mytheme.spacing(2) }} />
         <MuiTypography variant="body2" fontWeight={mytheme.typography.fontWeightRegular}>
           {counterSubHeader}
         </MuiTypography>
-        <Spacer size={64} />
+        <Spacer sx={{
+          height: {
+            xs: mytheme.spacing(8),
+            sm: mytheme.spacing(8),
+          },
+        }}
+        />
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(3, 1fr)',
+            },
             gap: mytheme.spacing(6),
           }}
           ref={elemRef}
@@ -51,7 +65,13 @@ function FooterCounter() {
           {list.map(({ id, percentageValue, bottomText }) => (
             <div key={id}>
               <MuiCircularProgressBar maxPercentageValue={percentageValue} size={144} thickness={1.25} variant="determinate" isLabel />
-              <Spacer size={20} />
+              <Spacer sx={{
+                height: {
+                  xs: mytheme.spacing(1),
+                  sm: mytheme.spacing(1.5),
+                },
+              }}
+              />
               <MuiTypography variant="p" component="p" fontWeight={mytheme.typography.fontWeightRegular}>
                 {bottomText}
               </MuiTypography>
